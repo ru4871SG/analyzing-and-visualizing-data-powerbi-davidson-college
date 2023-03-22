@@ -1,5 +1,5 @@
 #need to use setwd() so we can run R script straight in Power BI
-setwd("C:/Users/Ruddy/Documents/powerbi_edx_course/week 1 wrap-up wine")
+setwd("C:/Users/Ruddy/Documents/powerbi_edx_course_davidson_college/week 1 wrap-up wine")
 
 library(tidyverse)
 
