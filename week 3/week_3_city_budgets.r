@@ -10,8 +10,8 @@ budgets <- read_excel("week_3_wrap_up.xlsx")
 expenditure_comparison <- budgets %>% filter(`Revenue or Expenditure` == "Expenditures") %>% group_by(`Fund Type Descr`) %>% summarise(original_budget = sum(`Original Budget`), actual_expenditure = sum(`Actuals`))
 
 #now let's check revenue numbers
-revenue_comparison <- budgets %>% filter(`Revenue or Expenditure` == "Revenues") %>% group_by(`Fund Type Descr`) %>% summarise(original_budget = sum(`Original Budget`), actual_expenditure = sum(`Actuals`))
+revenue_comparison <- budgets %>% filter(`Revenue or Expenditure` == "Revenues") %>% group_by(`Fund Type Descr`) %>% summarise(original_budget = sum(`Original Budget`), actual_revenue = sum(`Actuals`))
 
 #let's calculate the differences
 expenditure_comparison <- expenditure_comparison %>% mutate(actual_vs_budget = original_budget - actual_expenditure)
-revenue_comparison <- revenue_comparison %>% mutate(actual_vs_budget = original_budget - actual_expenditure)
+revenue_comparison <- revenue_comparison %>% mutate(actual_vs_budget = original_budget - actual_revenue)
