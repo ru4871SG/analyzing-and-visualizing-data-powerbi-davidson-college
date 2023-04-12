@@ -41,3 +41,9 @@ deaths_global$new_daily_deaths <- ifelse(deaths_global$new_daily_deaths < 0, 0, 
 recovered_global$new_daily_recovered <- c(recovered_global$total_recovered_grouped[1], diff(recovered_global$total_recovered_grouped))
 
 recovered_global$new_daily_recovered <- ifelse(recovered_global$new_daily_recovered < 0, 0, recovered_global$new_daily_recovered)
+
+#let's calculate the 7 days average
+library(zoo)
+confirmed_global <- confirmed_global %>% mutate(Daily_New_Cases_7_Day_Avg = rollmeanr(new_daily_case, 7, fill = NA))
+deaths_global <- deaths_global %>% mutate(Daily_New_Deaths_7_Day_Avg = rollmeanr(new_daily_deaths, 7, fill = NA))
+recovered_global <- recovered_global %>% mutate(Daily_New_Cases_7_Day_Avg = rollmeanr(new_daily_recovered, 7, fill = NA))
